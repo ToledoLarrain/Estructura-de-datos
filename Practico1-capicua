@@ -1,0 +1,27 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+void main()
+{
+	int num, aux, residuo, numinv=0;
+    cout<< "ingrese un numero entero por favor: ";
+    cin >> num;
+	aux=num;
+    cout << endl << endl;
+
+    while(aux>0)
+    {
+      residuo=aux%10;
+      aux=aux/10;
+      numinv=numinv*10+residuo;
+    }
+
+	if(numinv==num)
+		cout<<"el numero ingresado  es capicua";
+	else
+		cout<<"el numero ingresado no es capicua";
+
+	getch();
+}
