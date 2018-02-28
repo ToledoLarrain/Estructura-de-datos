@@ -1,0 +1,24 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+void main()
+{
+	int n,d,cp=0;
+	cout<<"por favor ingrese  un numero entero"<<endl;
+	cin>>n;	
+	while(n>0)
+	{
+		d=n%10;
+		if(d%2==0)
+		{
+			cout<<d<<endl;
+			cp=cp+1;
+		}
+		
+		n=n/10;
+	}
+	
+	cout<<"el numero entero ingresado tiene un total de digitos pares igual a "<<cp;
+	getch();
+}
