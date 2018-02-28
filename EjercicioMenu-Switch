@@ -1,0 +1,73 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+void complemento();
+void sumadigitos();
+void main()
+{
+	int opcion;
+	do
+	{
+		cout<<"--------MENU--------"<<endl;
+		cout<<"1.- complemento"<<endl;
+		cout<<"2.- sumadigitos"<<endl;
+		cout<<"salir"<<endl;
+		cout<<"por favor ingrese una opcion"<<endl;
+		cin>> opcion;
+		switch(opcion)
+		{
+		     case 1:  complemento();
+			          break;
+		     case 2:  sumadigitos();
+			          break;
+		     case 3:  cout<<"salir"<<endl;
+			          break;
+
+		default: cout<<"opcion no permitida"<<endl;
+			     break;
+		}
+	} while (opcion!=0);
+}
+
+void complemento()
+{
+	int n,dig,aux,s=0,dif, comp=0,d;
+	cout<<"por favor ingrese un numero entero"<<endl;
+	cin>>n;
+	while(n>0)
+	{
+		dig=n%10;
+		dif=9-dig;
+		s=((s*10)+dif);
+		n=n/10;
+	
+	}
+	aux=s;
+	while(aux>0)
+	{
+		d=aux%10;
+		comp=comp*10+d;
+		aux=aux/10;
+	}
+	cout<<"el complemento a 9 del numero ingresado es:"<<endl;
+	cout<<comp;
+	getch();
+}
+
+void sumadigitos()
+{
+	int n,c,s=0;
+	cout<<"por favor ingresar un numero entero cualquiera"<<endl;
+	cin>> n;
+	while(n>0)
+	{
+		c=n%10;
+		s=s+c;
+		n=n/10;
+	}
+	cout<<"la sumatoria de digitos del numero entero ingresado es igual a: "<<s;
+	getch();
+
+
+}
