@@ -1,0 +1,14 @@
+#pragma once
+
+class suma
+{
+private:
+	float num1;
+	float num2;
+	float suma1;
+
+public:
+	suma(void);
+	~suma(void);
+	float calcularsuma(float a, float b);
+};
