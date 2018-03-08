@@ -1,0 +1,14 @@
+#include "stdafx.h"
+#include "suma.h"
+
+suma::suma(void)
+{
+}
+suma::~suma(void)
+{
+}
+float suma::calcularsuma(float a, float b)
+{
+	suma1=a+b;
+	return suma1;
+}
