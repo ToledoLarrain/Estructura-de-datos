@@ -1,0 +1,15 @@
+#pragma once
+
+class triangulo
+{
+private:
+	float base;
+	float altura;
+	float area;
+	
+public:
+	triangulo(void); 
+	~triangulo(void); 
+	
+	float calculararea(float b, float h);
+};
