@@ -1,0 +1,19 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+#include "suma.h"
+
+using namespace std;
+
+void main()
+{
+	suma suma1;
+	float a;
+	float b;
+	cout<<"ingrese un valor"<<endl;
+	cin>> a;
+	cout<<"ingrese un valor"<<endl;
+	cin>> b;
+    cout<<"la suma es:"<<suma1.calcularsuma(a,b)<<endl;
+    getch();
+}
