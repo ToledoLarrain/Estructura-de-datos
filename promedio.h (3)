@@ -1,0 +1,21 @@
+#pragma once
+//definimos la  clase
+class promedio
+//atributos de la clase
+{
+private:
+	float p1;
+	float p2;
+	float pf;
+	float pp;
+	float promedio1;
+
+//metodos o procedimientos de la clase
+public:
+
+	promedio();  //constructor de la clase
+	~promedio(); //destructor de la clase
+
+//prototipo de la clase
+	float calcularpromedio(float p1, float p2, float pf, float pp);
+};
