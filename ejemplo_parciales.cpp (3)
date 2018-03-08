@@ -1,0 +1,26 @@
+// ejemplo_parciales.cpp : main project file.
+//programa principal
+#include "stdafx.h"
+#include <iostream>
+#include "promedio.h"
+#include <conio.h>
+
+using namespace std;
+
+void main()
+{
+    promedio promedio1; //crea el objeto o instancia
+	float p1,p2,pf,pp;
+
+	cout<<"ingresar nota primer parcial"<<endl; // insertamos las caracteristicas del objeto o instancia
+	cin>>p1;
+	cout<<"ingresar nota segundo parcial"<<endl;
+	cin>>p2;
+	cout<<"ingresar nota final"<<endl;
+	cin>>pf;
+	cout<<"ingresar nota practica"<<endl;
+	cin>>pp;
+
+	cout<<"el promedio del estudiante es:"<<promedio1.calcularpromedio(p1,p2,pf,pp)<<endl; //finalizamos el objeto
+	getch();
+}
