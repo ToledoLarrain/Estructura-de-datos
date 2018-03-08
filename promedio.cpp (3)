@@ -1,0 +1,21 @@
+#include "StdAfx.h"
+#include "promedio.h"
+//implementamos los metodos
+promedio::promedio()   //se declara constructor
+{
+}
+promedio::~promedio()  //se declara destructor
+{
+}
+float promedio::calcularpromedio(float p1, float p2, float pf, float pp) //se declara el metodo o procedimiento
+{
+	float ponderacionP,ponderacionF,ponderacionPP,promedio;
+	ponderacionP=((p1+p2)/2)*0.4;
+	ponderacionF=pf*0.4;
+	ponderacionPP=pp*0.2;
+
+	promedio=ponderacionP+ponderacionF+ponderacionPP;
+	return promedio;
+
+
+}
