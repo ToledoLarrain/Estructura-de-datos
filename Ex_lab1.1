@@ -1,0 +1,89 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+void f_serie(int n);
+int f_fact(int n);
+void f_especial(int n);
+
+
+void main ()
+{	int op,num;
+	do
+	{cout<<"----------MENU----------"<<endl;
+	 cout<<"1.- Serie "<<endl;
+	 cout<<"2.- Numero Especial "<<endl;
+	 cout<<"0.- Salir "<<endl;
+	 cin>>op;
+	 switch(op)
+	 {
+	  case 1:
+		{
+		  cout<<"Ingrese un numero = ";
+		  cin>>num;
+		  f_serie(num);
+		  cout<<endl;
+		  break;
+		}
+	  case 2:
+		{
+		  cout<<"Ingrese un numero = ";
+		  cin>>num;
+		  f_especial(num);
+		  break;
+		}
+	  case 0: 
+		{
+	      cout <<"Salir..."<<endl;
+		  break;
+		}
+	 default: break;
+	 }
+	}while(op!=0);
+	getch();
+	
+}
+
+void f_serie(int n)
+{	
+	int s,i;
+	s=n-1;
+	for(i=0;i<=n;i++)
+	{
+	 cout <<s<<" ";
+	 s=s+n;
+	}
+}
+int f_fact(int n)
+{	
+	int i,f=1;
+	for(i=1;i<=n;i++)
+	{
+		f=f*i;
+	}
+    return f;
+}
+void f_especial(int n)
+{	
+	int a,r;
+	int s=0;
+	a=n;
+	while(n>0)
+	{
+	  r=n%10;
+	  s=s+f_fact(r);
+	  n=n/10;
+	}
+	cout<<"La suma es: "<<s;
+	cout<<endl;
+	if(s==a)
+	{
+	  cout<<"es un numero especial. "<<endl;
+	}
+	else
+	{
+	  cout<<"no es un numero especial. "<<endl;
+	}
+}
