@@ -6,7 +6,7 @@ using namespace std;
 
 void f_serie(int n);
 int f_fact(int n);
-void f_especial(int n);
+void f_curioso(int n);
 
 
 void main ()
@@ -14,7 +14,7 @@ void main ()
 	do
 	{cout<<"----------MENU----------"<<endl;
 	 cout<<"1.- Serie "<<endl;
-	 cout<<"2.- Numero Especial "<<endl;
+	 cout<<"2.- Numero Curioso "<<endl;
 	 cout<<"0.- Salir "<<endl;
 	 cin>>op;
 	 switch(op)
@@ -31,7 +31,7 @@ void main ()
 		{
 		  cout<<"Ingrese un numero = ";
 		  cin>>num;
-		  f_especial(num);
+		  f_curioso(num);
 		  break;
 		}
 	  case 0: 
@@ -65,7 +65,7 @@ int f_fact(int n)
 	}
     return f;
 }
-void f_especial(int n)
+void f_curioso(int n)
 {	
 	int a,r;
 	int s=0;
