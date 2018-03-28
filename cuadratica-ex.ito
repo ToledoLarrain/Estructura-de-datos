@@ -1,0 +1,74 @@
+//la clase
+#pragma once
+class cuadratica
+{ 
+private:
+  int a;
+  int b;
+  int c;
+  float cuadratica1;
+public:
+	cuadratica(void);
+	~cuadratica(void);
+	void solucion(int a,int b,int c);
+};
+
+//1° cpp
+#include "stdafx.h"
+#include <math.h>
+#include <iostream>
+#include <conio.h>
+#include "cuadratica.h"
+using namespace std;
+
+cuadratica::cuadratica(void)
+{
+	 a=0;
+	 b=0;
+	 c=0;
+
+}
+cuadratica::~cuadratica(void)
+{
+}
+void cuadratica::solucion(int a,int b,int c)
+{
+  float D,R,x1,x2;
+  D=(b*b)-(4*(a*c));
+  R=sqrt(D);
+ 
+  if(D<0)
+  {
+   cout<<"No se puede hallar una solucion en el conjunto de los reales"<<endl;
+  }
+  else
+  {
+   x1=(-b+R)/(2*a);
+   x2=(-b-R)/(2*a);
+   cout<<"los resultados son:"<<endl;
+   cout<<"x1="<<x1<<endl;
+   cout<<"X2="<<x2;
+  }
+}
+
+// ProgPrin
+#include "stdafx.h"
+#include <math.h>
+#include "cuadratica.h"
+#include <conio.h>
+#include "iostream"
+using namespace std;
+
+void main ()
+{	cuadratica cuadratica1;
+	int a,b,c;
+	cout<<"ingrese datos para la ecuacion cuadratica. "<<endl;
+	cout<<"Ingrese el valor de a: "<<endl;
+	cin>>a;
+	cout<<"Ingrese el valor de b: "<<endl;
+	cin>>b;
+	cout<<"Ingrese el valor de c: "<<endl;
+	cin>>c;
+	cuadratica1.solucion(a,b,c);
+	getch();
+}
