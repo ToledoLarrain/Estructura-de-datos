@@ -1,0 +1,42 @@
+#include "stdafx.h"
+#include "vectores.h"
+#include <iostream>
+#include <conio.h>
+
+#define max 10
+using namespace std;
+void main()
+{
+	int vec[max], n, op;
+	vectores vectores1;
+	do
+	{
+		cout<<"ingrese el tamañano del vector";
+		cin>>n;
+	}while((n>max)|| (n<=0));
+	do
+	{
+		cout<<"--- MENU ---"<<endl;
+		cout<<"1.- cargar vector"<<endl;
+		cout<<"2.- mostrar vector"<<endl;
+		cout<<"3.- ordenar vector"<<endl;
+		cout<<"0.- salir"<<endl;
+		cout<<"elija una opcion"<<endl;
+		cin>>op;
+		switch(op)
+		{
+		case 1: vectores1.cargarvector(vec, n);
+			    break;
+		case 2: vectores1.mostrarvector(vec, n);
+			break;
+		case 3: vectores1.ordenarvector(vec, n);
+			break;
+		case 0: cout<<"salir"<<endl;
+			break;
+		default:
+			cout<<"error de opcion no valida"<<endl;
+			break;
+		}
+	}while(op!=0);
+	getch();
+}
