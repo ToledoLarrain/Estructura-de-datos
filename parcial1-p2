@@ -1,0 +1,75 @@
+automovil1.h
+#pragma once
+class automovil1
+{
+private:
+	caja, motor,chasis,volante,luces,rueda,placa,pistones,caballos;
+public:
+	automovil1(void);
+	~automovil1(void);
+	void arrancar();
+	void parar();
+};
+
+
+automovil1.cpp
+#include "StdAfx.h"
+#include "automovil1.h"
+#include "iostream"
+using namespace std;
+
+automovil1::automovil1(void)
+{
+}
+
+automovil1::~automovil1(void)
+{
+}
+
+void automovil1::arrancar()
+{
+	cout<<"Automovil arrancando"<<endl;
+}
+void automovil1::parar()
+{
+	cout<<"Automovil parando"<<endl;
+}
+
+
+main.cpp
+#include "stdafx.h"
+#include "automovil1.h"
+#include "iostream"
+#include "conio.h"
+using namespace std;
+
+void main()
+{
+	automovil1 automovil11,automovil12;
+	int op;
+	do
+	{
+		cout<<"Digite la opcion: "<<endl;
+		cout<<"----MENU---"<<endl;
+		cout<<"1.-Arrancar"<<endl;
+		cout<<"2.-Parar"<<endl;
+		cout<<"3.-Salir"<<endl;
+		cin>>op;
+		switch(op)
+		{
+		case 1:
+			{
+				automovil11.arrancar();
+			}break;
+		case 2:
+			{
+				automovil12.parar();
+			}break;
+		case 3:
+			{
+				cout<<"Salir"<<endl;
+			}default:break;
+		}
+	}while(op!=3);
+	getch();
+}
