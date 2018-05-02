@@ -1,0 +1,151 @@
+clase
+#pragma once
+
+class matriz
+{
+	private:
+	   int M[20][20],c,f;
+
+	public:
+	   matriz(void);
+	   ~matriz(void);
+	   void cargarmatriz(int c,int f,int M[20][20]);
+	   void mostrarmatriz(int c,int f,int M[20][20]);
+	   void ordenarmatriz(int c,int f,int M[20][20]);
+	   void promediomatriz(int c,int f,int M[20][20]);
+};
+
+1° cpp
+#include "StdAfx.h"
+#include "matriz.h"
+#include <iostream>
+using namespace std;
+
+matriz::matriz(void)
+{
+}
+
+matriz::~matriz(void)
+{
+}
+
+void matriz::cargarmatriz(int c,int f,int M[20][20])
+{
+	for(int i=0;i<f;i++)
+	{
+		for(int j=0;j<c;j++)
+		{
+			cout<<"ingrese el valor de una celda: ";
+			cin>>M[i][j];
+		}
+	}
+}
+
+void matriz::mostrarmatriz(int c,int f,int M[20][20])
+{
+	for(int i=0;i<f;i++)
+	{
+		for(int j=0;j<c;j++)
+		{
+			cout<<M[i][j]<<" \t ";
+		}
+		cout<<endl;
+	}
+}
+
+void matriz::ordenarmatriz(int c,int f,int M[20][20])
+{
+	int aux;
+	for(int i=0;i<f;i++)
+	{
+		for(int j=0;j<c;j++)
+		{
+			for(int pos=j+1;pos<c;pos++)
+			{
+				if(M[i][j]>M[i][pos])
+				{
+					aux=M[i][j];
+					M[i][j]=M[i][pos];
+					M[i][pos]=aux;
+				}
+			}
+			cout<<M[i][j]<<" \t ";
+		}
+		cout<<endl;
+	}
+}
+
+void matriz::promediomatriz(int c,int f,int M[20][20])
+{
+	float s,p;
+	s=0;
+	for(int i=0;i<f;i++)
+	{
+		for(int j=0;j<c;j++)
+		{
+			s=s+M[i][j];
+			p=s/c;
+		}
+		cout<<"el promedio de la columna es: "<<p<<endl;
+		p=0;
+	}
+}
+
+prog. principal
+#include "stdafx.h"
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+#include "matriz.h"
+using namespace std;
+void main()
+{
+	matriz matriz1,matriz2,matriz3,matriz4;
+	int x,c,f,M[20][20];
+	do
+	{
+		cout<<"Digite la opcion: "<<endl;
+		cout<<"--------MENU-----"<<endl;
+		cout<<"1.-Cargar matriz"<<endl;
+		cout<<"2.-Mostar Matriz"<<endl;
+		cout<<"3.-Ordenar matriz"<<endl;
+		cout<<"4.-Promedio"<<endl;
+		cout<<"5.-Salir"<<endl;
+		cin>>x;
+		switch(x)
+		{
+			case 1:
+				{
+					do
+					{
+						cout<<"ingre el numero de filas: ";
+						cin>>f;
+					}while((f<0)||(f>20));
+					do
+					{
+						cout<<"ingre el numero de columnas: ";
+						cin>>c;
+					}while((c<0)||(c>20));
+					matriz1.cargarmatriz(c,f,M);
+				}break;
+			case 2:
+				{
+					matriz2.mostrarmatriz(c,f,M);
+				}break;
+			case 3:
+				{
+					matriz3.ordenarmatriz(c,f,M);
+				}break;
+			case 4:
+				{
+					matriz4.promediomatriz(c,f,M);
+				}
+			case 5:
+				{
+					cout<<"Opcion incorrecta";
+				}default:break;
+	
+		}
+	}while(x !=5);
+	getch();
+}
