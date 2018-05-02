@@ -1,0 +1,107 @@
+vector1.h
+#pragma once
+class vector1
+{
+	private:
+		int v[20],n;
+	public:
+		vector1(void);
+		~vector1(void);
+		void cargar(int n,int v[20]);
+		void mayor(int n,int v[20]);
+		void ordenar(int n,int v[20]);
+		void mostrar(int n,int v[20]);
+};
+
+
+vector.cpp
+#include "StdAfx.h"
+#include "vector1.h"
+#include "iostream"
+using namespace std;
+
+vector1::vector1(void)
+{
+}
+
+vector1::~vector1(void)
+{
+}
+
+void vector1::cargar(int n,int v[20])
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<"ingrese el valor de la celda: ";
+		cin>>v[i];
+	}
+}
+void vector1::mostrar(int n,int v[20])
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<v[i]<<" \t ";
+	}
+}
+void vector1::mayor(int n,int v[20])
+{
+	int may,pos;
+	may=0;
+	pos=0;
+	for(int i=0;i<n;i++)
+	{
+			if(v[i]>may)
+			{
+				may=v[i];
+			}
+	}
+	cout<<"El numero mayor es: "<<may<<endl;
+	for(int i=0;i<n;i++)
+	{
+		if(v[i]==may)
+		{
+			cout<<"el numero mayor se repite en la posicion: "<<pos<<endl;
+		}
+		pos=pos+1;
+	}
+}
+void vector1::ordenar(int n,int v[20])
+{
+	int aux;
+	for(int i=0;i<n;i++)
+	{
+		for(int j=i+1;j<n;j++)
+		{
+			if(v[i]<v[j])
+			{
+				aux=v[i];
+				v[i]=v[j];
+				v[j]=aux;
+			}
+		}
+		
+	}
+	mostrar(n,v);
+}
+
+
+principal.cpp
+#include "stdafx.h"
+#include "vector1.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+void main()
+{
+	vector1 vector1,vector2,vector3;
+	int n,v[20];
+	do
+	{
+		cout<<"ingrese el limite del vector: ";
+		cin>>n;
+	}while((n<0)||(n>20));
+	vector1.cargar(n,v);
+	vector2.mayor(n,v);
+	vector3.ordenar(n,v);
+	getch();
+}
