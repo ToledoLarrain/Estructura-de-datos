@@ -1,0 +1,93 @@
+estudiante.h
+#pragma once
+class estudiante
+{
+	private:
+		int a,np1,np2,np3,np,nf,nfa,pf;
+	public:
+		estudiante(void);
+		~estudiante(void);
+		int promedio(int np1,int np2,int np3,int np,int nf);
+		void diferencia(int nfa,int pf);
+};
+
+
+estudiante.cpp
+#include "StdAfx.h"
+#include "estudiante.h"
+#include <iostream>
+using namespace std;
+
+estudiante::estudiante(void)
+{
+}
+
+estudiante::~estudiante(void)
+{
+}
+
+int estudiante::promedio(int np1,int np2,int np3,int np,int nf)
+{
+	int npf,npraf,nff,p;
+	npf=((np1+np2+np3)/3)*0.4;
+	npraf=np*0.2;
+	nff=nf*0.4;
+	p=npf+npraf+nff;
+	return p;
+}
+void estudiante::diferencia(int nfa,int pf)
+{
+	int d;
+	if(nfa>pf)
+	{
+		d=nfa-pf;
+	}
+	else
+	{
+		if(pf>nfa)
+		{
+			d=pf-nfa;
+		}
+	}
+	cout<<"la diferencia entre la nota del alumno y el promedio es de : "<<d;
+}
+
+
+principal.cpp
+#include "stdafx.h"
+#include "estudiante.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+void main()
+{
+	estudiante estudiante1,estudiante2;
+	int np1,np2,np3,np,nf,na,i,s,pf,nfa,pos;
+	i=0;
+	s=0;
+	pos=1;
+	cout<<"ingrese la cantidad de alumnos para obtener el promedio: ";
+	cin>>na;
+	do
+	{
+		cout<<"ingrese los datos del alumno #"<<pos<<endl;
+		cout<<"ingrese las notas de los 3 parciales respectivamente : "<<endl;
+		cin>>np1;
+		cin>>np2;
+		cin>>np3;
+		cout<<"ingrese la nota practica : ";
+		cin>>np;
+		cout<<"ingrese la nota del examen final: ";
+		cin>>nf;
+		s=s+(estudiante1.promedio(np1,np2,np3,np,nf));
+		i=i+1;
+		pos=pos+1;
+	}while(i<na);
+	pf=s/na;
+	cout<<"el promedio de notas entre "<<na<<" numero de alumno es: "<<pf<<endl;
+	cout<<"ingrese la nota final total del alumno a comparar: ";
+	cin>>nfa;
+	estudiante2.diferencia(nfa,pf);
+	getch();
+
+}
