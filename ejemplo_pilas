@@ -1,0 +1,152 @@
+la clase
+#pragma once
+
+const int full=100;
+
+class pilas
+{
+private: 
+int pila[full], tope;
+
+
+public:
+pilas(void);
+~pilas(void);
+bool push(int data);
+bool pop(int &data);
+bool siestavacia();
+bool siestallena();
+void mostrar();
+void mostrartope();
+};
+
+1° cpp
+#include "StdAfx.h"
+#include "pila.h"
+
+#include <iostream>
+using namespace std;
+
+pilas::pilas(void)
+{
+tope=(-1);
+}
+
+pilas::~pilas(void)
+{
+}
+
+bool pilas::siestavacia()
+{ 
+if(tope==-1)
+{ 
+return true;
+}
+else 
+return false;
+}
+
+bool pilas::siestallena()
+{ 
+if(tope==full-1)
+return true;
+else 
+return false;
+}
+
+bool pilas::push(int data)
+{
+if (siestallena()==false)
+{
+tope++;
+pila[tope]=data;
+return true;
+}
+else
+return false; 
+}
+bool pilas::pop(int &data)
+{
+if (siestavacia()==false)
+{
+data=pila[tope];
+tope--;
+return true;
+}
+else 
+return false;
+}
+void pilas::mostrar()
+{ 
+if(siestavacia()==true)
+cout<<" la pila esta vacia "<<endl;
+else
+{ for(int i=tope;i>=0;i--)
+cout<<" pila["<<i<<"]= "<<pila[i]<<endl;
+}
+}
+
+void pilas::mostrartope()
+{
+cout<<tope<<":"<<pila[tope]<<endl;
+}
+
+Principal
+#include "stdafx.h"
+#include <iostream>
+#include "pila.h"
+#include "stdlib.h"
+#include "conio.h"
+using namespace std;
+
+void main()
+{ pilas pilas1,pilas2;
+int op,i,t,x, pilas[full], tope;
+do{
+cout<<"-----MENU-----\n";
+cout<<"1) Push\n";
+cout<<"2) Pop\n";
+cout<<"3) Mostrar\n";
+cout<<"4) Tope\n";
+cout<<"0) Salir\n";
+cin>>op;
+switch(op)
+{
+case 1:
+
+if(pilas1.siestallena()==false)
+{cout<<"INGRESE DATO:"<<endl;
+cin>>x;
+pilas1.push(x);
+}
+else
+cout<<"LA PILA ESTA LLENA"<<endl;
+break;
+case 2:
+if(pilas1.siestavacia()==true)
+cout<<"LA PILA SE ENCUENTRA VACIA:"<<endl;
+else
+pilas1.pop(x);
+break;
+case 3:
+pilas1.mostrar();
+break;
+case 4:
+pilas1.mostrartope();
+break;
+case 0:
+cout<<"SALIR"<<endl;
+break;
+
+default: 
+cout<<"error"<<endl;
+break;
+}
+getch();
+system("cls");
+
+}while(op!=0);
+
+getch();
+
+}
