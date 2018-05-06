@@ -1,0 +1,165 @@
+clase.h
+#pragma once
+const int MAX = 20;
+
+class colass
+
+{
+private:
+int cola[MAX];
+int frente;
+int final;
+public:
+colass(void);
+~colass(void);
+
+void ingresar(int dato);
+void mostrar();
+int eliminar();
+bool vacio();
+bool lleno();
+void mostrarff();
+};
+
+1°cpp
+#include "StdAfx.h"
+#include "cola.h"
+#include <iostream>
+
+using namespace std;
+
+colass::colass(void)
+{
+final=-1;
+frente=0;
+
+}
+
+colass::~colass(void)
+{
+}
+
+void colass::ingresar(int dato)
+{ 
+final++;
+
+cola[final]=dato;
+
+}
+void colass::mostrar()
+{for(int i=0;i<=final;i++)
+cout<<"|"<<cola[i]<<"| ";
+}
+
+int colass::eliminar()
+{int dato;
+dato=cola[frente];
+for(int i=0;i<final;i++)
+{ 
+cola[i]=cola[i+1];
+}
+final--;
+return dato;
+}
+
+bool colass::lleno()
+{ 
+if (final== MAX-1)
+
+return (true);
+
+else
+
+return false;
+}
+
+bool colass::vacio()
+{
+if (final<frente)
+return true;
+else
+return false;
+}
+
+void colass::mostrarff()
+{
+cout<<"frente:"<<cola[frente]<<endl;
+cout<<"final:"<<cola[final]<<endl;
+}
+
+principal
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "cola.h"
+
+using namespace std;
+void main()
+
+{
+colass cola1,cola2;
+int x,op,tope;
+
+
+do{
+cout<<" -------- MENU --------"<<endl;
+cout<<" 1° Ingresar dato "<<endl;
+cout<<" 2° Eliminar dato "<<endl;
+cout<<" 3° Mostrar cola "<<endl;
+cout<<" 4° Mostrar elemento frente y final "<<endl;
+cout<<" 5° SALIR "<<endl;
+cin>>op;
+switch (op)
+{
+case 1:
+{
+if(cola1.lleno() == false)
+{
+
+cout<<"Ingrese un dato = "<<endl;
+cin>>x;
+cola1.ingresar(x);
+} else 
+{
+cout<<"Cola llena";
+
+}
+
+}
+
+break;
+case 2:
+
+{
+
+if(cola1.vacio() == false)
+{
+cola1.eliminar();
+
+} else
+{
+cout<<"cola vacia";
+
+}
+
+}
+
+break;
+case 3:
+cola1.mostrar();
+break;
+case 4 :
+cola1.mostrarff();
+break; 
+case 5:
+cout<<"salir";
+break;
+default:
+cout<<"error";
+break;
+}
+}while(op!=5);
+getch();
+
+}
